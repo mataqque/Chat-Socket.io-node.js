@@ -16,7 +16,10 @@
         <input type="text" id="usuario-text"><input type="button" id="enviar_usuario" value="validar">
         <form id="chat">
             <div id="status"><div class="usuario"><p>Flavio</p></div><div class="point bg-success"></i></div></div>
-            <div id="show-message"></div>
+            <div id="show-message">
+                <div class="contenedor-enviado"><div class="complemento"></div><div class="bg-success text-enviado">Flavio</div></div>
+
+            </div>
             <div id="content-message">
                 <input type="text" id="get-message" autocomplete="off">
                 <button id="send-message"><i class="fas fa-paper-plane"></i></button>
@@ -39,18 +42,29 @@
     socket.on("send message",function(msg){
         var whousario = function(){
             if(usuario == msg[0]){
-                return "bg-success texto-enviado";
+                return "bg-success text-enviado";
             }else{
                 return "bg-info";
             }
         }
+        let contenedor = crear_complemento();
         var item = document.createElement('div');
         item.textContent=msg[1];
         item.className = whousario();
-        document.getElementById("show-message").appendChild(item)
+        contenedor.appendChild(item)
         document.getElementById("show-message").scrollTop = document.getElementById("show-message").scrollHeight;
-        console.log(document.getElementById("show-message").scrollTop);
+        
     });
+
+    function crear_complemento(){
+        var contenedor = document.createElement('div');
+        contenedor.className = "contenedor-enviado";
+        document.getElementById("show-message").appendChild(contenedor);
+        var complemento = document.createElement('div');
+        complemento.className ="complemento";
+        contenedor.appendChild(complemento)
+        return contenedor;
+    }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
