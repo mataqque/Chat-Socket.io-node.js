@@ -88,9 +88,17 @@ li{list-style: none;padding:2px 20px;}
 }
 .complemento{
     flex-grow: 1;
+    order:2
 }
 .text-enviado{
     padding: 10px;
     border-radius: 7px;
     color:white;
+    order: 3;
+}
+.text-recivido{
+    padding: 10px;
+    border-radius: 7px;
+    color:white;
+    order: 1;
 }
