@@ -35,11 +35,14 @@ li{list-style: none;padding:2px 20px;}
 #show-message{
     /* height:87%; */
     flex-grow: 1;
+    display:block;
+    flex-direction: column;
     width: 100%;
     position: relative;
     /* top: 25px; */
     border-bottom: 1px solid rgba(124, 124, 124, 0.788);
     overflow-y: scroll;
+    /* overflow-x: hidden; */
 }
 #content-message{
     height: 13%;
@@ -78,4 +81,10 @@ li{list-style: none;padding:2px 20px;}
     border-radius: 20px;
     right: 0px;
     margin: 2px 10px;
+}
+.texto-enviado{
+    position: relative;;
+    right: 0px;
+    display: block;
+    padding:0px 10px;
 }
